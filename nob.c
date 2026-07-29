@@ -18,7 +18,7 @@ void build_common_linux(Nob_Cmd *cmd, const char *input, const char *output){
 int main(int argc, char **argv){
     NOB_GO_REBUILD_URSELF(argc, argv);
     Nob_Cmd cmd = {0};
-    build_common(&cmd, "main.c", "run.exe");
+    build_common_linux(&cmd, "main.c", "run.exe");
     if(!nob_cmd_run(&cmd)) return -1;
     //build_common(&cmd, "todo.c", "todo.exe");
     //if(!nob_cmd_run(&cmd)) return -1;
