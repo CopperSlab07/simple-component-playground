@@ -1,7 +1,5 @@
 # Simple Component Playground (HEAVILY WORK IN PROGRESS!)
 
-**Linux branch -- VERY UNSTABLE!**
-
 **Caution! Ignore this project if you:**
 
 * Wants something fast & efficient to use professionally
