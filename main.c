@@ -89,43 +89,15 @@ int main(void){
         .tint_on    = GetColor(0xFFFFFFFF)
     };
 
-    component_set_texture(  map->components[2].handle, &led_texture);
-    component_scale_hitbox( map->components[2].handle, (float)map->components[2].texture->width, (float)map->components[2].texture->height);
-    component_set_texture(  map->components[3].handle, &led_texture);
-    component_scale_hitbox( map->components[3].handle, (float)map->components[3].texture->width, (float)map->components[3].texture->height);
-    component_set_texture(  map->components[4].handle, &led_texture);
-    component_scale_hitbox( map->components[4].handle, (float)map->components[4].texture->width, (float)map->components[4].texture->height);
-    component_set_texture(  map->components[5].handle, &led_texture);
-    component_scale_hitbox( map->components[5].handle, (float)map->components[5].texture->width, (float)map->components[5].texture->height);
-    component_set_texture(  map->components[6].handle, &led_texture);
-    component_scale_hitbox( map->components[6].handle, (float)map->components[6].texture->width, (float)map->components[6].texture->height);
-    component_set_texture(  map->components[7].handle, &led_texture);
-    component_scale_hitbox( map->components[7].handle, (float)map->components[7].texture->width, (float)map->components[7].texture->height);
-    component_set_texture(  map->components[8].handle, &led_texture);
-    component_scale_hitbox( map->components[8].handle, (float)map->components[8].texture->width, (float)map->components[8].texture->height);
-
-    //Can also do this, disgusting but works:
-    //map->components[2].texture          = LoadTexture("./assets/sell.png");
-    //map->components[2].hitbox.width     = map->components[2].texture->width;
-    //map->components[2].hitbox.height    = map->components[2].texture->height;
-
     digital_ports_init(&map->components[1]);
     map->components[1].ports[0].offset.y = 0;
-    digital_ports_init(&map->components[2]);
-    digital_ports_init(&map->components[3]);
-    digital_ports_init(&map->components[4]);
-    digital_ports_init(&map->components[5]);
-    digital_ports_init(&map->components[6]);
-    digital_ports_init(&map->components[7]);
-    digital_ports_init(&map->components[8]);
 
-    connect_digital_ports(&map->components[2].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[3].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[4].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[5].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[6].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[7].ports[0], &map->components[1].ports[0]);
-    connect_digital_ports(&map->components[8].ports[0], &map->components[1].ports[0]);
+    for(uint32_t i = 2; i < 9; i++){
+        component_set_texture(  map->components[i].handle, &led_texture);
+        component_scale_hitbox( map->components[i].handle, (float)map->components[i].texture->width, (float)map->components[i].texture->height);
+        digital_ports_init(&map->components[i]);
+        connect_digital_ports(&map->components[i].ports[0], &map->components[1].ports[0]);
+    }
 
     while(!WindowShouldClose()){
         current_handle = map_update(camera);
@@ -214,15 +186,6 @@ int main(void){
         BeginDrawing();
         ClearBackground(GetColor(BACKGROUND));
             BeginMode2D(camera);
-            /*
-            DrawLine(
-                map->components[1].hitbox.x + (map->components[1].hitbox.width) / 2,
-                map->components[1].hitbox.y + (map->components[1].hitbox.height) / 2, 
-                map->components[2].hitbox.x + (map->components[2].hitbox.width) / 2, 
-                map->components[2].hitbox.y + (map->components[2].hitbox.height) / 2, 
-                BLUE
-            );
-            */
             draw_selection(current_component, 4);
             map_draw();
             EndMode2D();
@@ -231,7 +194,7 @@ int main(void){
         EndDrawing();
     }
     CloseWindow();
-    fprintf(stdout, "Count: %d\n", map->components_count);
+    //fprintf(stdout, "Count: %d\n", map->components_count);
     free(map);
     return 0;
 }
