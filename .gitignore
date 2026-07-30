@@ -4,5 +4,5 @@ run.exe
 run
 todo.exe
 todo
-assets/default.* 
-vendor/* 
+assets/default.*
+vendor/*
