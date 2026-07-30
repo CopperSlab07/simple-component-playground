@@ -13,7 +13,6 @@
     * nob.h (just get from master branch): https://github.com/tsoding/nob.h
 
 * Step 2: build:
-    * Get nob.c from OS-dependent branches (currently linux and windows, the windows do not support MSVC right now.)
     * Change nob.c to your OS's dependencies (below are just examples for system libraries, check comments in nob.c for a little bit more)
         * Windows: -lm -lgdi32 -lwinmm
         * Linux:   -lm -lX11 -lXext -lGL
