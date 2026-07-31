@@ -6,6 +6,7 @@
 * [ ] extra components: (30/7/2026 - indefinite)
     * [ ] Basic logic gates (AND, OR, NOT) (30/7/2026 - indefinite)
 * [ ] Component selector (30/7/2026 - indefinite)
+* [ ] Texture atlas (31/7/2026 - indefinite)
 * [ ] (slowly) improve control (30/7/2026 - indefinite)
 * [ ] Major & minor modes (Ex: Major: VIEW => Minor: Interactive) (30/7/2026 - indefinite)
 * [ ] export/import map with a binary format or sth (30/7/2026 - indefinite)

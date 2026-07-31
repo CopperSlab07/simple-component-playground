@@ -158,7 +158,7 @@ int main(void){
         }
 
         //This is for, y'know, getting rid of stuff like a LIFO stack.
-        if((IsKeyPressed(KEY_N) || IsKeyPressedRepeat(KEY_N)) && map->cells_count < MAX_CELLS){
+        if((IsKeyPressed(KEY_N) || IsKeyPressedRepeat(KEY_N) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) && map->cells_count < MAX_CELLS){
             if(
                    mouse_pos.x >= 0 
                 && mouse_pos.y >= 0 
@@ -171,7 +171,7 @@ int main(void){
                 current_cell->config.hitbox.y = mouse_pos.y;
             }
         }
-        if((IsKeyPressed(KEY_D) || IsKeyPressedRepeat(KEY_D)) && map->cells_count > 1){
+        if((IsKeyPressed(KEY_D) || IsKeyPressedRepeat(KEY_D) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && map->cells_count > 1){
             if(current_cell == &map->cells[0]) current_cell = &map->cells[map->cells_count - 1];
             cell_destroy(current_cell->handle);
             current_cell = &map->cells[map->cells_count - 1];
@@ -189,6 +189,7 @@ int main(void){
             },
             templates[current_template].color
         );
+        /*
         DrawRectangleLinesEx(
             (Rectangle){
                 mouse_pos.x - (templates[current_template].hitbox.width / 2) - 2,
@@ -199,6 +200,7 @@ int main(void){
             4,
             templates[current_template].color
         );
+        */
         draw_outline(current_cell, 4);
         map_draw();
 

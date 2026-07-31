@@ -69,10 +69,18 @@ typedef struct Button {
 } Button; //for testing purposes, only a rectangle that can change color for now
 
 //:Component
-typedef union ComponentData{
+typedef union ComponentData {
     LED led;
     Button button;
 } ComponentData;
+
+typedef struct ComponentTemplate {
+    ComponentType type;
+    //uint32_t digital_ports_count;
+    Rectangle hitbox;
+    Texture2D texture;
+    Interactive interactive;
+} ComponentTemplate;
 
 #define MAX_PORTS 4
 typedef struct Component {
