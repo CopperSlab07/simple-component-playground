@@ -18,9 +18,11 @@ void build_common_linux(Nob_Cmd *cmd, const char *input, const char *output){
 int main(int argc, char **argv){
     NOB_GO_REBUILD_URSELF(argc, argv);
     Nob_Cmd cmd = {0};
-    //build_common_windows(&cmd, "main.c", "run");
+    //build_common_windows(&cmd, "src/main.c", "bin/run");
     //if(!nob_cmd_run(&cmd)) return -1;
-    build_common_windows(&cmd, "todo.c", "todo.exe");
+    build_common_windows(&cmd, "src/main_atlas.c", "bin/run_atlas");
     if(!nob_cmd_run(&cmd)) return -1;
+    //build_common_windows(&cmd, "src/todo.c", "bin/todo.exe");
+    //if(!nob_cmd_run(&cmd)) return -1;
     return 0;
 }

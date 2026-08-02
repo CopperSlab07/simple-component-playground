@@ -140,7 +140,7 @@ int main(void){
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "TODO?");
     SetTargetFPS(60);
     
-    GuiLoadStyle("vendor/style_genesis.rgs");
+    GuiLoadStyle("./vendor/style_genesis.rgs");
     GuiSetStyle(DEFAULT, TEXT_SIZE, DEFAULT_TEXT_SIZE);
 
     while(!WindowShouldClose()){

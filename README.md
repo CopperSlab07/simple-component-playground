@@ -32,7 +32,7 @@
 * todo.c: Tests for UI stuff with raygui.h, built the same way as main.c.
 
 ## Licenses: 
-* For todo.c, main.c, components.h: MIT license
+* For **ALL** of src/: MIT license
 * For **ALL** of assets/: Creative Commons Zero v1.0 Universal
 * For dependencies and nob.c: according to each dependencies:
     * raylib & raygui: Zlib license

@@ -73,7 +73,7 @@ typedef union ComponentData {
     LED led;
     Button button;
 } ComponentData;
-
+/*
 typedef struct ComponentTemplate {
     ComponentType type;
     //uint32_t digital_ports_count;
@@ -81,7 +81,7 @@ typedef struct ComponentTemplate {
     Texture2D texture;
     Interactive interactive;
 } ComponentTemplate;
-
+*/
 #define MAX_PORTS 4
 typedef struct Component {
     ComponentType type;
